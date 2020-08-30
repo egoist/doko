@@ -12,7 +12,7 @@ func EnablePostgres() {
 	err := utils.DockerRun(utils.RunOptions{
 		Name:  "postgres",
 		Port:  "5432",
-		Env:   []string{"POSTGRES_PASSWORD=admin"},
+		Env:   []string{"POSTGRES_PASSWORD=pass"},
 		Image: "postgres:12-alpine",
 	})
 	if err != nil {

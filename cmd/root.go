@@ -17,6 +17,7 @@ var rootCmd = &cobra.Command{
 
 // Execute runs the CLI
 func Execute() {
+	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(enableCmd)
 	rootCmd.AddCommand(disableCmd)
 
