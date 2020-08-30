@@ -1,16 +1,37 @@
+# Doko
+
+A docker-based development dependency manager.
+
 ## Services
 
 - `postgres`
 - `mysql`
 - `redis`
 
-### Postgres
+## Usage
+
+### Show a list of services
 
 ```bash
-doko enable postgres
-
-doko disable postgres
+doko list
 ```
 
-`doko enable postgres` will create a docker container for postgres with root password set to `admin`.
-You can connect to via default port `5432`.
+### Enable a service
+
+```bash
+doko enable redis
+```
+
+### Disable a service
+
+```bash
+doko disable redis
+```
+
+## Piror Art
+
+Inspired by [takeout](https://github.com/tightenco/takeout) which is written in PHP while this is written in Go.
+
+## License
+
+MIT &copy; [EGOIST](https://github.com/sponsors/egoist)
