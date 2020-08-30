@@ -10,9 +10,10 @@ import (
 // EnableRedis starts a docker container for redis
 func EnableRedis() {
 	err := utils.DockerRun(utils.RunOptions{
-		Name:  "redis",
-		Port:  "6379",
-		Image: "redis:6-alpine",
+		Name:   "redis",
+		Port:   "6379",
+		Image:  "redis:6-alpine",
+		Volume: "redis_data:/data",
 	})
 	if err != nil {
 		log.Fatal(err)

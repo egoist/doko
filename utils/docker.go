@@ -7,10 +7,11 @@ import (
 
 // RunOptions is options for DockerRun
 type RunOptions struct {
-	Name  string
-	Port  string
-	Image string
-	Env   []string
+	Name   string
+	Port   string
+	Image  string
+	Env    []string
+	Volume string
 }
 
 // DockerRun starts a container
@@ -23,6 +24,8 @@ func DockerRun(options RunOptions) error {
 		options.Port + ":" + options.Port,
 		"--rm",
 		"-d",
+		"-v",
+		options.Volume,
 	}
 	for _, v := range options.Env {
 		args = append(args, "-e", v)

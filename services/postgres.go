@@ -10,10 +10,11 @@ import (
 // EnablePostgres starts a docker container for postgres
 func EnablePostgres() {
 	err := utils.DockerRun(utils.RunOptions{
-		Name:  "postgres",
-		Port:  "5432",
-		Env:   []string{"POSTGRES_PASSWORD=pass"},
-		Image: "postgres:12-alpine",
+		Name:   "postgres",
+		Port:   "5432",
+		Env:    []string{"POSTGRES_PASSWORD=pass"},
+		Image:  "postgres:12-alpine",
+		Volume: "postgres_data:/var/lib/postgresql/data",
 	})
 	if err != nil {
 		log.Fatal(err)
