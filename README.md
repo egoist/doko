@@ -6,6 +6,14 @@ A docker-based development dependency manager.
 
 Stop messing with system dependencies, running the services you need in a perfectly isolated Docker container instead for web development.
 
+## Install
+
+```bash
+curl -sf https://gobinaries.com/egoist/doko | sh
+```
+
+Then `doko` command will be available globally.
+
 ## Services
 
 - `postgres`
