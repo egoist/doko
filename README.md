@@ -40,6 +40,14 @@ doko enable redis
 doko disable redis
 ```
 
+### Run commands in a Docker container
+
+Docker containers created by Doko use the same names as the services, for instance you can run commands in the `mysql` container like this:
+
+```bash
+docker exec -it mysql /bin/bash
+```
+
 ## Piror Art
 
 Inspired by [takeout](https://github.com/tightenco/takeout) which is written in PHP while this is written in Go.
