@@ -40,6 +40,10 @@ doko enable redis
 doko disable redis
 ```
 
+### Password
+
+The password for the default user in `postgres` and `mysql` is set to `pass`.
+
 ### Run commands in a Docker container
 
 Docker containers created by Doko use the same names as the services, for instance you can run commands in the `mysql` container like this:
