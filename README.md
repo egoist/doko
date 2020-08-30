@@ -2,6 +2,10 @@
 
 A docker-based development dependency manager.
 
+## Why
+
+Stop messing with system dependencies, running the services you need in a perfectly isolated Docker container instead for web development.
+
 ## Services
 
 - `postgres`
