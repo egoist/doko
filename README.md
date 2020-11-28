@@ -20,6 +20,8 @@ Then `doko` command will be available globally.
 - `mysql`
 - `redis`
 
+For `postgres` and `mysql` the default password is `pass`.
+
 ## Usage
 
 ### Show a list of services
