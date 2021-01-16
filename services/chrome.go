@@ -20,8 +20,8 @@ func EnableChrome() {
 	fmt.Printf("Chrome websocket listening on port %s\n", "6343")
 }
 
-// DIsableChrome stops chrome container
-func DIsableChrome() {
+// DisableChrome stops chrome container
+func DisableChrome() {
 	err := utils.DockerStop("chrome")
 	if err != nil {
 		log.Fatal(err)

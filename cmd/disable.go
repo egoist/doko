@@ -17,7 +17,7 @@ var disableCmd = &cobra.Command{
 		case "mysql":
 			services.DisableMysql()
 		case "chrome":
-			services.DIsableChrome()
+			services.DisableChrome()
 		}
 	},
 }
