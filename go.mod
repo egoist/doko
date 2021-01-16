@@ -1,5 +1,5 @@
 module github.com/egoist/doko
 
-go 1.13
+go 1.16
 
-require github.com/spf13/cobra v1.0.0
+require github.com/spf13/cobra v1.1.1

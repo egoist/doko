@@ -19,6 +19,7 @@ Then `doko` command will be available globally.
 - `postgres`
 - `mysql`
 - `redis`
+- `chrome`
 
 ## Usage
 

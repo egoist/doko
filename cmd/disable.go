@@ -16,6 +16,8 @@ var disableCmd = &cobra.Command{
 			services.DisableRedis()
 		case "mysql":
 			services.DisableMysql()
+		case "chrome":
+			services.DIsableChrome()
 		}
 	},
 }

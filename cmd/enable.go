@@ -16,6 +16,8 @@ var enableCmd = &cobra.Command{
 			services.EnableRedis()
 		case "mysql":
 			services.EnableMysql()
+		case "chrome":
+			services.EnableChrome()
 		}
 	},
 }
