@@ -8,21 +8,7 @@ Stop messing with system dependencies, running the services you need in a perfec
 
 ## Install
 
-```bash
-curl -sf https://gobinaries.com/egoist/doko | sh
-```
-
-<small>
-
-For Mac M1 users, append the query `?arch=amd64` for now:
-
-```bash
-curl -sf "https://gobinaries.com/egoist/doko?arch=amd64" | sh
-```
-
-</small>
-
-Then `doko` command will be available globally.
+[Download the latest release](https://github.com/egoist/doko/releases).
 
 ## Services
 
