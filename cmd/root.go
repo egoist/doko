@@ -20,6 +20,7 @@ func Execute() {
 	rootCmd.AddCommand(listCmd)
 	rootCmd.AddCommand(enableCmd)
 	rootCmd.AddCommand(disableCmd)
+	rootCmd.AddCommand(replCmd)
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)

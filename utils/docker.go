@@ -38,6 +38,7 @@ func DockerRun(options RunOptions) error {
 	)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
 	return cmd.Run()
 }
 
@@ -46,5 +47,15 @@ func DockerStop(name string) error {
 	cmd := exec.Command("docker", "stop", name)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
+	return cmd.Run()
+}
+
+// DockerExec is basically a shorthand of `docker exec`
+func DockerExec(name string) error {
+	cmd := exec.Command("docker", "exec", "-it", name, "/bin/bash")
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+	cmd.Stdin = os.Stdin
 	return cmd.Run()
 }

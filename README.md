@@ -43,10 +43,16 @@ The password for the default user in `postgres` and `mysql` is set to `pass`.
 
 ### Run commands in a Docker container
 
-Docker containers created by Doko use the same names as the services, for instance you can run commands in the `mysql` container like this:
+```bash
+doko repl <service-name>
+# e.g.
+doko repl postgres
+```
+
+This is basically a shorthand for:
 
 ```bash
-docker exec -it mysql /bin/bash
+docker exec -it postgres /bin/bash
 ```
 
 ## Piror Art
