@@ -10,6 +10,12 @@ Stop messing with system dependencies, running the services you need in a perfec
 
 [Download the latest release](https://github.com/egoist/doko/releases).
 
+Or using [gobinaries.com](https://gobinaries.com/):
+
+```bash
+curl -sf https://gobinaries.com/egoist/doko | sh
+```
+
 ## Services
 
 - `postgres`
