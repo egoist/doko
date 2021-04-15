@@ -25,7 +25,7 @@ curl -sf https://gobinaries.com/egoist/doko | sh
 
 ## Usage
 
-### Show a list of services
+### Show the list of services
 
 ```bash
 doko list
@@ -37,11 +37,15 @@ doko list
 doko enable redis
 ```
 
+This runs `docker run` under the hood.
+
 ### Disable a service
 
 ```bash
 doko disable redis
 ```
+
+This runs `docker stop` under the hood.
 
 ### Password
 
