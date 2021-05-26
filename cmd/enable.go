@@ -11,7 +11,9 @@ var enableCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		switch args[0] {
 		case "postgres":
-			services.EnablePostgres()
+			services.EnablePostgres(false)
+		case "timescale":
+			services.EnablePostgres(true)
 		case "redis":
 			services.EnableRedis()
 		case "mysql":

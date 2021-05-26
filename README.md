@@ -19,6 +19,7 @@ curl -sf https://gobinaries.com/egoist/doko | sh
 ## Services
 
 - `postgres`
+- `timescale`
 - `mysql`
 - `redis`
 - `chrome`
@@ -58,6 +59,8 @@ doko repl <service-name>
 # e.g.
 doko repl postgres
 ```
+
+Note that the container name for `timescale` service is still `postgres`.
 
 This is basically a shorthand for:
 
