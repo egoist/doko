@@ -10,10 +10,10 @@ Stop messing with system dependencies, running the services you need in a perfec
 
 [Download the latest release](https://github.com/egoist/doko/releases).
 
-Or using [gobinaries.com](https://gobinaries.com/):
+Or using [goblin](https://goblin.reaper.im/) to build and download the executable on the fly:
 
 ```bash
-curl -sf https://gobinaries.com/egoist/doko | sh
+curl -fsSL https://goblin.reaper.im/github.com/egoist/doko | sh
 ```
 
 ## Services
