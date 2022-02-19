@@ -24,7 +24,7 @@ func Execute() {
 	rootCmd.Flags().BoolVarP(&displayVersion, "version", "v", false, "Displays version number")
 
 	rootCmd.AddCommand(listCmd)
-	rootCmd.AddCommand(enableCmd)
+	rootCmd.AddCommand(enableCommand())
 	rootCmd.AddCommand(disableCmd)
 	rootCmd.AddCommand(replCmd)
 
