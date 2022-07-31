@@ -1,6 +1,12 @@
 #!/usr/bin/env node
 import { cac } from "cac"
-import { disableServices, enableServices, listServices, startRepl } from "."
+import {
+  compose,
+  disableServices,
+  enableServices,
+  listServices,
+  startRepl,
+} from "."
 import { version } from "../package.json"
 
 const cli = cac(`doko`)
@@ -29,6 +35,19 @@ cli
   .command("repl <service>", "Run commands in docker container")
   .action((service) => {
     startRepl(service)
+  })
+
+cli
+  .command("compose", "Run docker-compose commands directly", {
+    allowUnknownOptions: true,
+  })
+  .action(() => {
+    compose(
+      process.argv
+        .slice(3)
+        .map((v) => JSON.stringify(v))
+        .join(" "),
+    )
   })
 
 cli.version(version)

@@ -29,11 +29,15 @@ doko list
 
 ### Enable a service
 
+Adding a service to `~/.doko/docker-compose.yml`:
+
 ```bash
 doko enable redis
 ```
 
 ### Disable a service
+
+Removing a service to `~/.doko/docker-compose.yml`:
 
 ```bash
 doko disable redis
@@ -61,9 +65,18 @@ doko enable hello --image hello-world
 
 ### docker-compose.yml
 
-The underlying Docker Compose file used by doko is located at `~/doko/docker-compose.yml`.
+The underlying Docker Compose file used by doko is located at `~/.doko/docker-compose.yml`.
 
 You can edit it directly to tweak your docker-compose service configurations.
+
+### Run `docker-compose` commands
+
+Run `doko compose` to run `docker-compose` in `~/.doko` directory, for example:
+
+```bash
+# Stop the chrome service
+doko compose stop chrome
+```
 
 ## License
 

@@ -17,6 +17,9 @@ export function enableServices(
   const dockerComposeData = readDockerCompose()
 
   for (const serviceName of serviceNames) {
+    if (dockerComposeData.services?.[serviceName]) {
+      throw new Error(`Service ${serviceName} already exists`)
+    }
     if (!KNOWN_SERVICES.includes(serviceName) && !image) {
       throw new Error("--image <image> is required for unknown services")
     }
@@ -103,4 +106,8 @@ export function startRepl(service: string) {
     throw new Error(`Service ${service} not found`)
   }
   runDockerCommand(`docker exec -it doko_${service} /bin/bash`)
+}
+
+export function compose(command: string) {
+  runDockerCommand(`docker-compose ${command}`)
 }
