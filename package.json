@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "build": "tsup src/cli.ts --dts --format esm --target node16",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "test": "echo lol"
   },
   "devDependencies": {
     "@egoist/prettier-config": "^1.0.0",
