@@ -8,18 +8,13 @@ Stop messing with system dependencies, running the services you need in a perfec
 
 ## Install
 
-[Download the latest release](https://github.com/egoist/doko/releases).
-
-Or using [goblin](https://goblin.reaper.im/) to build and download the executable on the fly:
-
 ```bash
-curl -fsSL https://goblin.reaper.im/github.com/egoist/doko | sh
+npm i -g @egoist/doko
 ```
 
-## Services
+## Built-in services
 
 - `postgres`
-- `timescale`
 - `mysql`
 - `redis`
 - `chrome`
@@ -38,19 +33,15 @@ doko list
 doko enable redis
 ```
 
-This runs `docker run` under the hood.
-
 ### Disable a service
 
 ```bash
 doko disable redis
 ```
 
-This runs `docker stop` under the hood.
-
 ### Password
 
-The password for the default user in `postgres` and `mysql` is set to `pass`.
+Default password for `postgres` and `mysql` is `password`.
 
 ### Run commands in a Docker container
 
@@ -60,17 +51,19 @@ doko repl <service-name>
 doko repl postgres
 ```
 
-Note that the container name for `timescale` service is still `postgres`.
+### Create a custom service
 
-This is basically a shorthand for:
+Create a service called `hello` from the `hello-world` image:
 
 ```bash
-docker exec -it postgres /bin/bash
+doko enable hello --image hello-world
 ```
 
-## Piror Art
+### docker-compose.yml
 
-Inspired by [takeout](https://github.com/tightenco/takeout) which is written in PHP while this is written in Go.
+The underlying Docker Compose file used by doko is located at `~/doko/docker-compose.yml`.
+
+You can edit it directly to tweak your docker-compose service configurations.
 
 ## License
 
