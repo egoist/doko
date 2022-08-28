@@ -27,25 +27,58 @@ npm i -g @egoist/doko
 doko list
 ```
 
-### Enable a service
+### Add a service
 
-Adding a service to `~/.doko/docker-compose.yml`:
+Adding a service to `~/.doko/config.json`:
 
 ```bash
-doko enable redis
+doko add redis
+
+# Or a custom service
+doko add hello --image hello-world
 ```
 
-### Disable a service
+### Remove a service
 
-Removing a service to `~/.doko/docker-compose.yml`:
+Removing a service from `~/.doko/config.json`:
+
+```bash
+doko remove redis
+```
+
+### Starting services
+
+```bash
+doko up
+```
+
+### Stopping services
+
+```bash
+doko down
+```
+
+### Enable / Disable services
+
+When you add a service, it's automatically enabled, meaning `doko up`, `doko down` will start and stop it respectively.
+
+If you want to stop it from running, but keep its configuration in `.doko/config.json`, you can run:
 
 ```bash
 doko disable redis
 ```
 
+When you need it again, you can bring it back with:
+
+```bash
+doko enable redis
+```
+
+This command basically adds / removes the service from our internal docker compose config.
+
 ### Password
 
-Default password for `postgres` and `mysql` is `password`.
+Default password for `postgres` and `mysql` is `password`, you can update it manually in `~/.doko/services.json`.
 
 ### Run commands in a Docker container
 
@@ -54,20 +87,6 @@ doko repl <service-name>
 # e.g.
 doko repl postgres
 ```
-
-### Create a custom service
-
-Create a service called `hello` from the `hello-world` image:
-
-```bash
-doko enable hello --image hello-world
-```
-
-### docker-compose.yml
-
-The underlying Docker Compose file used by doko is located at `~/.doko/docker-compose.yml`.
-
-You can edit it directly to tweak your docker-compose service configurations.
 
 ### Run `docker-compose` commands
 
