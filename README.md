@@ -21,80 +21,34 @@ npm i -g @egoist/doko
 
 ## Usage
 
-### Show the list of services
+### Show the list of running services
 
 ```bash
 doko list
 ```
 
-### Add a service
-
-Adding a service to `~/.doko/config.json`:
+### Start a service
 
 ```bash
-doko add redis
-
-# Or a custom service
-doko add hello --image hello-world
+doko start redis
 ```
 
-### Remove a service
-
-Removing a service from `~/.doko/config.json`:
+### Stop a service
 
 ```bash
-doko remove redis
+doko stop redis
 ```
-
-### Starting services
-
-```bash
-doko up
-```
-
-### Stopping services
-
-```bash
-doko down
-```
-
-### Enable / Disable services
-
-When you add a service, it's automatically enabled, meaning `doko up`, `doko down` will start and stop it respectively.
-
-If you want to stop it from running, but keep its configuration in `.doko/config.json`, you can run:
-
-```bash
-doko disable redis
-```
-
-When you need it again, you can bring it back with:
-
-```bash
-doko enable redis
-```
-
-This command basically adds / removes the service from our internal docker compose config.
 
 ### Password
 
-Default password for `postgres` and `mysql` is `password`, you can update it manually in `~/.doko/services.json`.
+Default password for `postgres` and `mysql` is `password`
 
-### Run commands in a Docker container
+### Run commands in a service's Docker container
 
 ```bash
 doko repl <service-name>
 # e.g.
 doko repl postgres
-```
-
-### Run `docker-compose` commands
-
-Run `doko compose` to run `docker-compose` in `~/.doko` directory, for example:
-
-```bash
-# Stop the chrome service
-doko compose stop chrome
 ```
 
 ## License
