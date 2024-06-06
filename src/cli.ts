@@ -20,41 +20,37 @@ cli
       dockerStop(name)
     }
 
-    switch (name) {
-      case "postgres":
-        dockerRun({
-          serviceName: "postgres",
-          image: flags.pgvector ? "pgvector/pgvector:pg16" : "postgres:16",
-          port: "5432:5432",
-          env: [`POSTGRES_PASSWORD=${DEFAULT_PASSWORD}`],
-          volumes: ["doko_pg:/var/lib/postgresql/data"],
-        })
-        break
-      case "redis":
-        dockerRun({
-          serviceName: "redis",
-          image: "redis:6",
-          port: "6379:6379",
-          env: [`REDIS_PASSWORD=${DEFAULT_PASSWORD}`],
-          volumes: ["doko_redis:/data"],
-        })
-        break
-      case "mysql":
-        dockerRun({
-          serviceName: "mysql",
-          image: "mysql:8",
-          port: "3306:3306",
-          env: [`MYSQL_ROOT_PASSWORD=${DEFAULT_PASSWORD}`],
-          volumes: ["doko_mysql:/var/lib/mysql"],
-        })
-      case "chrome":
-        dockerRun({
-          serviceName: "chrome",
-          image: "browserless/chrome:latest",
-          port: "4742:3000",
-          env: [`CONNECTION_TIMEOUT=600000`],
-        })
-        break
+    if (name === "postgres") {
+      dockerRun({
+        serviceName: "postgres",
+        image: flags.pgvector ? "pgvector/pgvector:pg16" : "postgres:16",
+        port: "5432:5432",
+        env: [`POSTGRES_PASSWORD=${DEFAULT_PASSWORD}`],
+        volumes: ["doko_pg:/var/lib/postgresql/data"],
+      })
+    } else if (name === "redis") {
+      dockerRun({
+        serviceName: "redis",
+        image: "redis:6",
+        port: "6379:6379",
+        env: [`REDIS_PASSWORD=${DEFAULT_PASSWORD}`],
+        volumes: ["doko_redis:/data"],
+      })
+    } else if (name === "mysql") {
+      dockerRun({
+        serviceName: "mysql",
+        image: "mysql:8",
+        port: "3306:3306",
+        env: [`MYSQL_ROOT_PASSWORD=${DEFAULT_PASSWORD}`],
+        volumes: ["doko_mysql:/var/lib/mysql"],
+      })
+    } else if (name === "chrome") {
+      dockerRun({
+        serviceName: "chrome",
+        image: "browserless/chrome:latest",
+        port: "4742:3000",
+        env: [`CONNECTION_TIMEOUT=600000`],
+      })
     }
   })
 
