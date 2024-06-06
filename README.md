@@ -18,6 +18,7 @@ npm i -g @egoist/doko
 - `mysql`
 - `redis`
 - `chrome`
+- `qdrant`
 
 ## Usage
 

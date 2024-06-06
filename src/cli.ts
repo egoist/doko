@@ -51,6 +51,15 @@ cli
         port: "4742:3000",
         env: [`CONNECTION_TIMEOUT=600000`],
       })
+    } else if (name === "qdrant") {
+      dockerRun({
+        serviceName: "qdrant",
+        image: "qdrant/qdrant:latest",
+        port: ["6333:6333", "6334:6334"],
+        volumes: ["doko_qdrant:/qdrant/storage"],
+      })
+    } else {
+      throw new Error(`unknown service: ${name}`)
     }
   })
 

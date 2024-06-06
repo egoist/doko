@@ -45,13 +45,19 @@ export function dockerRun({
   serviceName: string
   image: string
   volumes?: string[]
-  port?: string
+  port?: string | string[]
   env?: string[]
 }) {
   const args: string[] = ["run", "--name", `doko_${serviceName}`, "--rm", "-d"]
 
   if (port) {
-    args.push("-p", port)
+    if (Array.isArray(port)) {
+      port.forEach((p) => {
+        args.push("-p", p)
+      })
+    } else {
+      args.push("-p", port)
+    }
   }
 
   if (volumes) {
