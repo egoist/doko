@@ -42,7 +42,7 @@ doko stop redis
 
 ### Password
 
-All containers are started with no password.
+Default password for `postgres` and `mysql` is `password`
 
 ### Run commands in a service's Docker container
 

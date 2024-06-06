@@ -25,6 +25,7 @@ cli
         serviceName: "postgres",
         image: flags.pgvector ? "pgvector/pgvector:pg16" : "postgres:16",
         port: "5432:5432",
+        env: [`POSTGRES_PASSWORD=${DEFAULT_PASSWORD}`],
         volumes: ["doko_pg:/var/lib/postgresql/data"],
       })
     } else if (name === "redis") {
@@ -32,6 +33,7 @@ cli
         serviceName: "redis",
         image: "redis:6",
         port: "6379:6379",
+        env: [`REDIS_PASSWORD=${DEFAULT_PASSWORD}`],
         volumes: ["doko_redis:/data"],
       })
     } else if (name === "mysql") {
@@ -39,6 +41,7 @@ cli
         serviceName: "mysql",
         image: "mysql:8",
         port: "3306:3306",
+        env: [`MYSQL_ROOT_PASSWORD=${DEFAULT_PASSWORD}`],
         volumes: ["doko_mysql:/var/lib/mysql"],
       })
     } else if (name === "chrome") {
