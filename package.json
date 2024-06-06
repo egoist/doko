@@ -11,7 +11,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/cli.ts --dts --format esm --target node16",
+    "dev": "pnpm build --watch",
+    "build": "tsup src/cli.ts --dts --format esm --target node20",
     "prepublishOnly": "npm run build",
     "test": "echo lol"
   },
