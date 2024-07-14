@@ -1,4 +1,5 @@
 import { spawnSync, execSync, ExecSyncOptions } from "child_process"
+import { printPort } from "./utils"
 
 let requireSudo: boolean | undefined
 
@@ -41,23 +42,21 @@ export function dockerRun({
   volumes,
   port,
   env,
+  extraArgs,
 }: {
   serviceName: string
   image: string
   volumes?: string[]
-  port?: string | string[]
+  port?: Array<`${number}:${number}`>
   env?: string[]
+  extraArgs?: string[]
 }) {
   const args: string[] = ["run", "--name", `doko_${serviceName}`, "--rm", "-d"]
 
   if (port) {
-    if (Array.isArray(port)) {
-      port.forEach((p) => {
-        args.push("-p", p)
-      })
-    } else {
-      args.push("-p", port)
-    }
+    port.forEach((p) => {
+      args.push("-p", p)
+    })
   }
 
   if (volumes) {
@@ -74,9 +73,17 @@ export function dockerRun({
 
   args.push(image)
 
+  if (extraArgs) {
+    args.push(...extraArgs)
+  }
+
   const command = `docker ${args.join(" ")}`
 
   runDockerCommand(command)
+
+  if (port) {
+    printPort(port)
+  }
 }
 
 export function dockerStop(serviceName: string) {

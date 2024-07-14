@@ -19,6 +19,7 @@ npm i -g @egoist/doko
 - `redis`
 - `chrome`
 - `qdrant`
+- `traefik`
 
 ## Usage
 

@@ -24,7 +24,7 @@ cli
       dockerRun({
         serviceName: "postgres",
         image: flags.pgvector ? "pgvector/pgvector:pg16" : "postgres:16",
-        port: "5432:5432",
+        port: ["5432:5432"],
         env: [`POSTGRES_PASSWORD=${DEFAULT_PASSWORD}`],
         volumes: ["doko_pg:/var/lib/postgresql/data"],
       })
@@ -32,21 +32,21 @@ cli
       dockerRun({
         serviceName: "redis",
         image: "redis:6",
-        port: "6379:6379",
+        port: ["6379:6379"],
         volumes: ["doko_redis:/data"],
       })
     } else if (name === "mysql") {
       dockerRun({
         serviceName: "mysql",
         image: "mysql:8",
-        port: "3306:3306",
+        port: ["3306:3306"],
         volumes: ["doko_mysql:/var/lib/mysql"],
       })
     } else if (name === "chrome") {
       dockerRun({
         serviceName: "chrome",
         image: "browserless/chrome:latest",
-        port: "4742:3000",
+        port: ["4742:3000"],
         env: [`CONNECTION_TIMEOUT=600000`],
       })
     } else if (name === "qdrant") {
@@ -55,6 +55,14 @@ cli
         image: "qdrant/qdrant:latest",
         port: ["6333:6333", "6334:6334"],
         volumes: ["doko_qdrant:/qdrant/storage"],
+      })
+    } else if (name === "traefik") {
+      dockerRun({
+        serviceName: "traefik",
+        image: "traefik:v3.0",
+        port: ["4842:8080", "80:80"],
+        volumes: ["/var/run/docker.sock:/var/run/docker.sock"],
+        extraArgs: ["--api.insecure=true", "--providers.docker"],
       })
     } else {
       throw new Error(`unknown service: ${name}`)

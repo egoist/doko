@@ -10,3 +10,7 @@ export const omit = <T extends Record<string, any>, K extends keyof T>(
   }
   return res
 }
+
+export const printPort = (port: string[]) => {
+  console.log("Port mapping", Array.isArray(port) ? port.join(", ") : port)
+}
